@@ -1,0 +1,1057 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Luciano Bicaku — Frontend Engineer</title>
+<meta name="description" content="Frontend engineer with 6+ years building eCommerce storefronts on BigCommerce, Shopify, and headless React stacks. Currently building an AI-powered theme platform. Open to senior & lead roles." />
+<meta name="author" content="Luciano Bicaku" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://luciano-bicaku.vercel.app" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://luciano-bicaku.vercel.app" />
+<meta property="og:title" content="Luciano Bicaku — Frontend Engineer" />
+<meta property="og:description" content="Frontend engineer with 6+ years building eCommerce storefronts on BigCommerce, Shopify, and headless React stacks. Currently building an AI-powered theme platform." />
+<meta property="og:image" content="https://luciano-bicaku.vercel.app/assets/luciano.jpg" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="Luciano Bicaku" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Luciano Bicaku — Frontend Engineer" />
+<meta name="twitter:description" content="Frontend engineer with 6+ years building eCommerce storefronts on BigCommerce, Shopify, and headless React stacks. Currently building an AI-powered theme platform." />
+<meta name="twitter:image" content="https://luciano-bicaku.vercel.app/assets/luciano.jpg" />
+
+<!-- JSON-LD structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Luciano Bicaku",
+  "jobTitle": "Senior Frontend Engineer",
+  "description": "Frontend engineer with 6+ years building eCommerce storefronts on BigCommerce, Shopify, and headless React stacks.",
+  "url": "https://luciano-bicaku.vercel.app",
+  "email": "luciano.bicaku2307@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tirana",
+    "addressCountry": "AL"
+  },
+  "knowsAbout": ["React", "Next.js", "TypeScript", "BigCommerce", "Shopify", "eCommerce", "Headless Commerce", "AI", "Anthropic API"],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Exposure"
+  },
+  "sameAs": [
+    "https://luciano-bicaku.vercel.app",
+    "https://www.linkedin.com/in/luciano-bicaku-0403871a0/"
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* ---------- TOKENS ---------- */
+  :root {
+    --bg: #fafaf7;
+    --bg-2: #f2f0e8;
+    --ink: #0e0e0c;
+    --ink-2: #444240;
+    --ink-3: #8a8780;
+    --rule: #cfccc1;
+    --accent: #c54f2c; /* used very sparingly */
+    --paper: #ffffff;
+
+    --serif: "Instrument Serif", "Times New Roman", serif;
+    --sans: "Instrument Sans", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+
+    --maxw: 1240px;
+    --pad: clamp(20px, 4vw, 56px);
+  }
+  html[data-theme="dark"] {
+    --bg: #0e0e0c;
+    --bg-2: #18181a;
+    --ink: #f1efe8;
+    --ink-2: #b8b4ab;
+    --ink-3: #6f6c64;
+    --rule: #2a2926;
+    --accent: #e57b53;
+    --paper: #16161a;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { background: var(--bg); }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background-color 240ms ease, color 240ms ease;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--ink); color: var(--bg); }
+
+  /* ---------- LAYOUT HELPERS ---------- */
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+  .rule { height: 1px; background: var(--rule); width: 100%; }
+  .mono { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+  .serif { font-family: var(--serif); font-weight: 400; }
+  .it { font-style: italic; }
+
+  /* ---------- NAV ---------- */
+  nav.top {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    backdrop-filter: blur(10px) saturate(1.2);
+    background: color-mix(in oklab, var(--bg) 78%, transparent);
+    border-bottom: 1px solid transparent;
+    transition: border-color 240ms, background 240ms;
+  }
+  nav.top.scrolled { border-bottom-color: var(--rule); }
+  nav.top .inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 14px var(--pad);
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  nav .brand { display:flex; align-items:baseline; gap:10px; }
+  nav .brand .mark {
+    font-family: var(--serif); font-size: 22px; line-height: 1;
+  }
+  nav .brand .mark em { font-style: italic; color: var(--ink-2); }
+  nav .links { display:flex; gap: 22px; align-items:center; }
+  nav .links a { font-size: 13px; color: var(--ink-2); position: relative; }
+  nav .links a:hover { color: var(--ink); }
+  nav .links a::after {
+    content: ""; position:absolute; left:0; right:0; bottom:-4px; height:1px;
+    background: var(--ink); transform: scaleX(0); transform-origin: left;
+    transition: transform 280ms cubic-bezier(.2,.7,.2,1);
+  }
+  nav .links a:hover::after { transform: scaleX(1); }
+  .theme-btn {
+    border: 1px solid var(--rule); background: transparent; color: var(--ink);
+    height: 32px; width: 32px; border-radius: 999px; cursor: pointer;
+    display: inline-flex; align-items:center; justify-content:center;
+    transition: border-color 200ms, transform 200ms;
+  }
+  .theme-btn:hover { border-color: var(--ink); transform: rotate(20deg); }
+  .theme-btn svg { width: 14px; height: 14px; }
+  @media (max-width: 720px) {
+    nav .links a:not(.cv-link) { display: none; }
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero {
+    padding: 160px var(--pad) 80px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    position: relative;
+  }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+  .hero-meta .cell { display: flex; flex-direction: column; gap: 6px; }
+  .hero-meta .cell .v { font-family: var(--sans); font-size: 14px; color: var(--ink); }
+  .hero-meta .cell .v em { color: var(--accent); font-style: normal; }
+  .hero-meta .cell .v .dot {
+    display: inline-block; width: 7px; height: 7px; border-radius: 999px; background: #22a06b;
+    margin-right: 6px; vertical-align: middle;
+    box-shadow: 0 0 0 0 rgba(34,160,107,0.5);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(34,160,107,0.45); }
+    70% { box-shadow: 0 0 0 8px rgba(34,160,107,0); }
+    100% { box-shadow: 0 0 0 0 rgba(34,160,107,0); }
+  }
+
+  h1.title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(56px, 11.5vw, 188px);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    margin: 0;
+    color: var(--ink);
+  }
+  h1.title .row { display: block; overflow: hidden; }
+  h1.title .row > span { display: inline-block; will-change: transform; }
+  h1.title .it { font-style: italic; color: var(--ink-2); }
+
+  .hero-sub {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 40px;
+    align-items: end;
+  }
+  .hero-sub p.lede {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.28;
+    color: var(--ink);
+    text-wrap: pretty;
+    margin: 0;
+    max-width: 28ch;
+  }
+  .hero-sub p.lede em { color: var(--accent); }
+  .hero-sub .right {
+    display: flex; flex-direction: column; gap: 18px;
+    align-items: flex-start;
+  }
+  .hero-sub .right .desc {
+    color: var(--ink-2); font-size: 15px; max-width: 38ch; line-height: 1.55;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--sans); font-size: 14px;
+    padding: 12px 18px; border-radius: 999px;
+    background: var(--ink); color: var(--bg);
+    transition: transform 200ms, background 200ms;
+  }
+  .hero-cta:hover { transform: translateY(-2px); }
+  .hero-cta .arrow {
+    display:inline-block; transition: transform 200ms;
+  }
+  .hero-cta:hover .arrow { transform: translateX(4px); }
+
+  @media (max-width: 760px) {
+    header.hero { padding-top: 100px; padding-bottom: 48px; }
+    .hero-meta { grid-template-columns: 1fr 1fr; margin-bottom: 40px; }
+    .hero-meta .cell:nth-child(3) { grid-column: 1 / -1; }
+    .hero-sub { grid-template-columns: 1fr; margin-top: 32px; gap: 24px; }
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee {
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    overflow: hidden;
+    padding: 18px 0;
+    margin-top: 56px;
+    white-space: nowrap;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee .track {
+    display: inline-flex; gap: 56px; animation: scroll 38s linear infinite;
+    font-family: var(--serif); font-size: 36px; line-height: 1;
+    color: var(--ink); padding-left: 56px;
+  }
+  .marquee .track .star { color: var(--accent); font-style: italic; font-size: 28px; vertical-align: middle; }
+  .marquee .track em { color: var(--ink-2); font-style: italic; }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section {
+    padding: 110px var(--pad);
+    max-width: var(--maxw);
+    margin: 0 auto;
+    position: relative;
+  }
+  @media (max-width: 760px) {
+    section { padding-top: 64px; padding-bottom: 64px; }
+  }
+  .sec-head {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    align-items: baseline;
+    margin-bottom: 56px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .sec-head .num { font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.1em; }
+  .sec-head h2 {
+    font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 4.4vw, 56px);
+    line-height: 1.02; letter-spacing: -0.02em; margin: 0; color: var(--ink);
+  }
+  .sec-head h2 em { color: var(--ink-3); }
+  @media (max-width: 760px) {
+    .sec-head { grid-template-columns: 1fr; gap: 14px; margin-bottom: 36px; }
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .portrait {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--bg-2);
+    border-radius: 2px;
+  }
+  .portrait img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: grayscale(0.25) contrast(1.02);
+    transition: filter 600ms, transform 800ms cubic-bezier(.2,.7,.2,1);
+  }
+  .portrait:hover img { filter: grayscale(0) contrast(1.04); transform: scale(1.03); }
+  .portrait .tag {
+    position: absolute; left: 16px; bottom: 16px;
+    background: var(--bg); padding: 6px 10px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink);
+    border: 1px solid var(--rule);
+  }
+  .about-body p {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.1vw, 28px);
+    line-height: 1.35;
+    color: var(--ink);
+    margin: 0 0 20px;
+    text-wrap: pretty;
+  }
+  .about-body p em { color: var(--accent); }
+  .about-body p.small {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-2);
+  }
+  .about-meta {
+    margin-top: 32px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    border-top: 1px solid var(--rule); padding-top: 24px;
+  }
+  .about-meta .item .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--ink-3); text-transform: uppercase; }
+  .about-meta .item .v { font-family: var(--serif); font-size: 22px; color: var(--ink); margin-top: 4px; }
+  @media (max-width: 860px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-meta { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-list { display: flex; flex-direction: column; }
+  .exp-row {
+    display: grid;
+    grid-template-columns: 120px 1.4fr 1fr 90px;
+    gap: 32px;
+    padding: 32px 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+    position: relative;
+    cursor: default;
+    transition: padding-left 320ms cubic-bezier(.2,.7,.2,1);
+  }
+  .exp-row:last-child { border-bottom: 1px solid var(--rule); }
+  .exp-row::before {
+    content: ""; position: absolute; left: -16px; top: 50%; transform: translateY(-50%);
+    width: 6px; height: 6px; border-radius: 999px; background: var(--accent);
+    opacity: 0; transition: opacity 200ms;
+  }
+  .exp-row:hover { padding-left: 16px; }
+  .exp-row:hover::before { opacity: 1; }
+  .exp-row .when { font-family: var(--mono); font-size: 12px; color: var(--ink-3); letter-spacing: 0.05em; }
+  .exp-row .role {
+    font-family: var(--serif); font-size: clamp(24px, 2.4vw, 30px); line-height: 1.15; color: var(--ink);
+  }
+  .exp-row .role em { color: var(--ink-3); font-style: italic; }
+  .exp-row .where { font-size: 14px; color: var(--ink-2); }
+  .exp-row .loc { font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
+  @media (max-width: 860px) {
+    .exp-row { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+    .exp-row .loc { text-align: left; }
+  }
+
+  /* ---------- AI PLATFORM FEATURE ---------- */
+  .feature {
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 4px;
+    padding: clamp(36px, 6vw, 80px);
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  html[data-theme="dark"] .feature {
+    background: var(--bg-2);
+    color: var(--ink);
+  }
+  html[data-theme="dark"] .feature .desc,
+  html[data-theme="dark"] .feature ul li,
+  html[data-theme="dark"] .feature .prompt-demo {
+    color: var(--ink);
+  }
+  html[data-theme="dark"] .feature .prompt-demo {
+    border-color: var(--rule);
+    background: color-mix(in oklab, var(--ink) 4%, transparent);
+  }
+  .feature .label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .feature .label .blink {
+    width: 6px; height: 6px; border-radius: 999px; background: var(--accent);
+    animation: blink 1.4s infinite;
+  }
+  @keyframes blink { 0%,100% { opacity: 1 } 50% { opacity: 0.25 } }
+  .feature h3 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(36px, 5.2vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin: 14px 0 30px;
+    max-width: 16ch;
+  }
+  .feature h3 em { color: var(--accent); }
+  .feature .grid {
+    display: grid; grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    margin-top: 40px;
+    align-items: start;
+  }
+  .feature .desc {
+    font-family: var(--serif); font-size: 22px; line-height: 1.4;
+    color: color-mix(in oklab, var(--bg) 80%, transparent);
+    text-wrap: pretty;
+  }
+  .feature .prompt-demo {
+    border: 1px solid color-mix(in oklab, var(--bg) 25%, transparent);
+    padding: 22px; border-radius: 4px;
+    background: color-mix(in oklab, var(--bg) 5%, transparent);
+    font-family: var(--mono); font-size: 13px; line-height: 1.7;
+    color: color-mix(in oklab, var(--bg) 85%, transparent);
+  }
+  .prompt-demo .you::before { content: "you  "; color: var(--accent); margin-right: 4px; }
+  .prompt-demo .ai::before { content: "ai   "; color: #7dd3a8; margin-right: 4px; }
+  .prompt-demo .line { display: block; padding: 4px 0; }
+  .prompt-demo .cursor {
+    display: inline-block; width: 7px; height: 14px; background: var(--accent);
+    vertical-align: -2px; margin-left: 2px; animation: blink 1s steps(1) infinite;
+  }
+  .feature ul {
+    list-style: none; padding: 0; margin: 28px 0 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px;
+  }
+  .feature ul li {
+    font-family: var(--sans); font-size: 14px;
+    color: color-mix(in oklab, var(--bg) 75%, transparent);
+    padding-left: 18px; position: relative;
+  }
+  .feature ul li::before {
+    content: "→"; position: absolute; left: 0; color: var(--accent);
+  }
+  @media (max-width: 860px) {
+    .feature .grid { grid-template-columns: 1fr; }
+    .feature ul { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .proj-list { display: flex; flex-direction: column; gap: 0; }
+  .proj {
+    display: grid;
+    grid-template-columns: 80px 1fr 1.3fr 220px;
+    gap: 32px;
+    padding: 36px 0;
+    border-top: 1px solid var(--rule);
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: padding 320ms cubic-bezier(.2,.7,.2,1);
+  }
+  .proj:last-child { border-bottom: 1px solid var(--rule); }
+  .proj .idx { font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
+  .proj .name {
+    font-family: var(--serif); font-size: clamp(28px, 3vw, 40px); line-height: 1.05;
+    color: var(--ink); letter-spacing: -0.01em;
+  }
+  .proj .name em { color: var(--ink-3); font-style: italic; font-size: 0.72em; display: block; margin-top: 6px; letter-spacing: 0; }
+  .proj .desc { font-size: 15px; color: var(--ink-2); line-height: 1.55; max-width: 50ch; }
+  .proj .tech {
+    display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end;
+  }
+  .proj .tech span {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+    color: var(--ink-2); padding: 4px 8px;
+    border: 1px solid var(--rule); border-radius: 999px;
+    transition: border-color 200ms, color 200ms;
+  }
+  .proj .arrow-link {
+    position: absolute; right: -8px; top: 50%; transform: translate(0,-50%);
+    font-family: var(--serif); font-size: 38px; line-height: 1; color: var(--ink);
+    opacity: 0; transition: opacity 240ms, transform 280ms cubic-bezier(.2,.7,.2,1);
+  }
+  .proj:hover { padding-left: 20px; }
+  .proj:hover .name { color: var(--accent); }
+  .proj:hover .arrow-link { opacity: 1; transform: translate(-20px,-50%); }
+  .proj:hover .tech span { border-color: var(--ink-3); color: var(--ink); }
+  @media (max-width: 980px) {
+    .proj { grid-template-columns: 40px 1fr; }
+    .proj .desc, .proj .tech { grid-column: 1 / -1; }
+    .proj .tech { justify-content: flex-start; }
+    .proj .arrow-link { display: none; }
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+  }
+  .skills-grid .group h4 {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-3); margin: 0 0 18px; font-weight: 500;
+    padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+  }
+  .skills-grid .group ul { list-style: none; padding: 0; margin: 0; }
+  .skills-grid .group li {
+    font-family: var(--serif); font-size: 22px; padding: 4px 0;
+    color: var(--ink); line-height: 1.3;
+    transition: color 200ms, padding-left 240ms;
+    cursor: default;
+  }
+  .skills-grid .group li:hover { color: var(--accent); padding-left: 10px; }
+  .skills-grid .group li .dim { color: var(--ink-3); font-style: italic; font-size: 14px; margin-left: 4px; }
+  @media (max-width: 980px) {
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- CONTACT ---------- */
+  section.contact { padding-bottom: 60px; }
+  .contact-block {
+    border-top: 1px solid var(--rule);
+    padding-top: 80px;
+    text-align: left;
+  }
+  .contact h2.big {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(56px, 12vw, 188px);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+  .contact h2.big em { color: var(--ink-3); }
+  .contact h2.big a {
+    border-bottom: 2px solid var(--rule);
+    transition: border-color 200ms, color 200ms;
+  }
+  .contact h2.big a:hover { border-bottom-color: var(--accent); color: var(--accent); }
+  .contact-meta {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    margin-top: 80px;
+    padding-top: 24px; border-top: 1px solid var(--rule);
+  }
+  .contact-meta .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--ink-3); text-transform: uppercase; }
+  .contact-meta .v { font-family: var(--serif); font-size: 22px; margin-top: 6px; color: var(--ink); }
+  .contact-meta a:hover { color: var(--accent); }
+  @media (max-width: 760px) {
+    .contact-meta { grid-template-columns: 1fr 1fr; margin-top: 48px; }
+  }
+  @media (max-width: 480px) {
+    .contact-meta { grid-template-columns: 1fr; }
+  }
+
+  footer {
+    padding: 32px var(--pad) 40px;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-3);
+    font-size: 12px;
+    font-family: var(--mono); letter-spacing: 0.06em;
+    display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    max-width: var(--maxw); margin: 80px auto 0;
+  }
+
+  /* ---------- SCROLL ANIMATIONS ---------- */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 800ms cubic-bezier(.2,.7,.2,1), transform 800ms cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: 80ms; }
+  .reveal.d2 { transition-delay: 160ms; }
+  .reveal.d3 { transition-delay: 240ms; }
+  .reveal.d4 { transition-delay: 320ms; }
+
+  /* Hero word entrance */
+  .word-anim { transform: translateY(110%); transition: transform 900ms cubic-bezier(.2,.7,.2,1); }
+  .word-anim.in { transform: translateY(0); }
+  .word-anim.w2 { transition-delay: 80ms; }
+  .word-anim.w3 { transition-delay: 160ms; }
+  .word-anim.w4 { transition-delay: 240ms; }
+
+  /* Cursor follower */
+  .cursor-blob {
+    position: fixed; top: 0; left: 0; pointer-events: none; z-index: 1;
+    width: 240px; height: 240px; border-radius: 999px;
+    background: radial-gradient(circle at center, color-mix(in oklab, var(--accent) 30%, transparent), transparent 70%);
+    transform: translate(-50%, -50%); opacity: 0;
+    transition: opacity 400ms;
+    mix-blend-mode: multiply;
+  }
+  html[data-theme="dark"] .cursor-blob { mix-blend-mode: screen; }
+  body:hover .cursor-blob { opacity: 0.7; }
+  @media (max-width: 860px) { .cursor-blob { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="cursor-blob" id="blob"></div>
+
+<!-- NAV -->
+<nav class="top" id="topnav">
+  <div class="inner">
+    <a class="brand" href="#top">
+      <span class="mark">Luciano <em>Bicaku</em></span>
+    </a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Work</a>
+      <a href="#contact">Contact</a>
+      <a class="cv-link" href="/assets/Luciano Bicaku — Senior eCommerce Engineer.pdf" target="_blank" rel="noopener" id="cvLink">CV ↓</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="sunIcon">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-meta">
+    <div class="cell">
+      <div class="mono">currently</div>
+      <div class="v"><span class="dot"></span>Open to senior roles</div>
+    </div>
+    <div class="cell">
+      <div class="mono">based in</div>
+      <div class="v">Tirana, AL — <em>CET</em></div>
+    </div>
+    <div class="cell">
+      <div class="mono">portfolio</div>
+      <div class="v">2019 — 2026 · <em>vol. ix</em></div>
+    </div>
+  </div>
+
+  <h1 class="title" aria-label="Frontend engineer with a soft spot for commerce.">
+    <span class="row"><span class="word-anim">Frontend</span></span>
+    <span class="row"><span class="word-anim w2 it">engineer</span></span>
+    <span class="row"><span class="word-anim w3">with a soft spot</span></span>
+    <span class="row"><span class="word-anim w4 it">for commerce.</span></span>
+  </h1>
+
+  <div class="hero-sub">
+    <p class="lede reveal d2">
+      Six years building the storefronts you've probably bought from — <em>now teaching AI to build them too.</em>
+    </p>
+    <div class="right reveal d3">
+      <div class="desc">
+        I ship production-grade eCommerce on BigCommerce, Shopify and headless React stacks. Lately I'm building an AI-powered theme &amp; widget platform that turns plain English into brand-consistent components.
+      </div>
+      <a class="hero-cta" href="#projects">
+        See the work <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span><em>react</em> · next.js · typescript · <span class="star">✦</span> · bigcommerce · stencil · <em>shopify</em> · hydrogen · headless · anthropic · vercel ai · <span class="star">✦</span> · scss · node · postgres · <em>react</em> · next.js · typescript · <span class="star">✦</span> · bigcommerce · stencil · <em>shopify</em> · hydrogen · headless · anthropic · vercel ai · <span class="star">✦</span> · scss · node · postgres ·&nbsp;</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-head">
+    <div class="num">01 / about</div>
+    <h2 class="reveal">A frontend engineer, <em>some of the time.</em></h2>
+  </div>
+  <div class="about-grid">
+    <div class="portrait reveal">
+      <img src="assets/luciano.jpg" alt="Portrait of Luciano Bicaku" />
+      <div class="tag">Luciano · 2026</div>
+    </div>
+    <div class="about-body">
+      <p class="reveal d1">
+        I've spent the last six years <em>writing the small, careful code</em> that turns design into something you can actually click — most of it for eCommerce.
+      </p>
+      <p class="small reveal d2">
+        I started as a junior at a Tirana agency, became Team Leader at Eurostep SRL, and most recently led frontend work at Exposure, a UK BigCommerce specialist. Along the way I've built custom checkouts, re-platformed stores, mentored developers, and integrated more third-party services than I'd care to admit.
+      </p>
+      <p class="small reveal d3">
+        These days I'm split between two things I love: shipping serious commerce frontends, and figuring out where AI actually belongs inside them. Outside of code, I'm easily found near coffee, espadrilles, or a half-finished side project.
+      </p>
+      <div class="about-meta reveal d4">
+        <div class="item"><div class="k">Years</div><div class="v">6+</div></div>
+        <div class="item"><div class="k">Stores shipped</div><div class="v">20+</div></div>
+        <div class="item"><div class="k">Timezone</div><div class="v">CET/CEST</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-head">
+    <div class="num">02 / experience</div>
+    <h2 class="reveal">A trail of <em>tickets, sprints,</em> and shipping days.</h2>
+  </div>
+  <div class="exp-list">
+
+    <div class="exp-row reveal">
+      <div class="when">2024 — 2025</div>
+      <div class="role">Senior Frontend Engineer<br/><em>Exposure</em></div>
+      <div class="where">BigCommerce themes, Bloomreach integrations, code review across the agency's client portfolio.</div>
+      <div class="loc">Remote · UK</div>
+    </div>
+
+    <div class="exp-row reveal d1">
+      <div class="when">2022 — 2024</div>
+      <div class="role">Technical Lead &amp; Team Leader<br/><em>Eurostep SRL</em></div>
+      <div class="where">Led a frontend squad building BigCommerce storefronts &amp; custom React checkouts. Sprint planning, mentoring, architecture.</div>
+      <div class="loc">Hybrid · IT</div>
+    </div>
+
+    <div class="exp-row reveal d2">
+      <div class="when">2020 — 2022</div>
+      <div class="role">Senior Frontend Developer<br/><em>Eurostep SRL</em></div>
+      <div class="where">Stencil themes, React widgets, multi-store integrations. Promoted from mid → senior → lead.</div>
+      <div class="loc">Tirana · AL</div>
+    </div>
+
+    <div class="exp-row reveal d3">
+      <div class="when">2019 — 2020</div>
+      <div class="role">Frontend Developer<br/><em>Freelance &amp; agency work</em></div>
+      <div class="where">First production code. Marketing sites, small SaaS UIs, learning everything the hard way.</div>
+      <div class="loc">Tirana · AL</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AI FEATURE -->
+<section id="feature-section" style="max-width: var(--maxw)">
+  <div class="feature reveal">
+    <div class="label"><span class="blink"></span> currently building · 2026</div>
+    <h3>An AI that builds <em>BigCommerce themes</em> from a sentence.</h3>
+    <div class="grid">
+      <div>
+        <div class="desc">
+          A widget &amp; theme platform that pairs a full design-token system with an Anthropic-powered generation layer. Type what you want, get brand-consistent React + Stencil components — ready to drop into a store.
+        </div>
+        <ul>
+          <li>Design token system (color, type, space)</li>
+          <li>Extended widget builder UI</li>
+          <li>Anthropic API + Vercel AI SDK</li>
+          <li>BigCommerce Storefront API</li>
+          <li>Brand-consistent code generation</li>
+          <li>One-click theme injection</li>
+        </ul>
+      </div>
+      <div class="prompt-demo" aria-hidden="true">
+        <span class="line you">build me a hero with a video background, bold serif headline, and a sticky CTA</span>
+        <span class="line ai">generating...</span>
+        <span class="line ai">→ Hero.tsx · 142 lines</span>
+        <span class="line ai">→ Hero.module.scss · 64 lines</span>
+        <span class="line ai">→ tokens.match(brand)<span class="cursor"></span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-head">
+    <div class="num">03 / selected work</div>
+    <h2 class="reveal">Stores I've <em>helped get to the checkout.</em></h2>
+  </div>
+  <div class="proj-list" id="projList">
+    <!-- injected by JS -->
+  </div>
+  <noscript>
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li><a href="https://thegelbottle.com/">The GelBottle — BigCommerce, Bloomreach, multi-channel beauty (UK)</a></li>
+      <li><a href="https://www.myfaba.it/">Faba SRL — Custom React checkout, BigCommerce multi-store (IT)</a></li>
+      <li><a href="https://jolieprofumerie.com/">Jolie Profumerie — Custom React/TS checkout, luxury fragrance (IT)</a></li>
+      <li><a href="https://morphparfum.com/">Morph Parfum — Widget-led BigCommerce storefront, fragrance (IT)</a></li>
+      <li><a href="https://en.missbikini.it/">Miss Bikini — Stencil storefront, swimwear (IT)</a></li>
+      <li><a href="https://en.johnnylambs.com/">Johnny Lambs — Urban footwear BigCommerce theme (IT)</a></li>
+      <li><a href="https://cambiobike.it/">CambioBike — Cycling accessories, filterable PLPs (IT)</a></li>
+      <li><a href="https://feelthefashion.it/">Feel the Fashion — Apparel storefront (IT)</a></li>
+      <li><a href="https://teamsdeliverysrl.it">Teams Delivery — Italian furniture storefront (IT)</a></li>
+    </ul>
+  </noscript>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-head">
+    <div class="num">04 / stack</div>
+    <h2 class="reveal">The tools I reach for <em>without thinking.</em></h2>
+  </div>
+  <div class="skills-grid">
+    <div class="group reveal">
+      <h4>Frontend</h4>
+      <ul>
+        <li>React <span class="dim">19</span></li>
+        <li>Next.js <span class="dim">15</span></li>
+        <li>TypeScript</li>
+        <li>SCSS / Tailwind</li>
+        <li>Handlebars</li>
+      </ul>
+    </div>
+    <div class="group reveal d1">
+      <h4>Commerce</h4>
+      <ul>
+        <li>BigCommerce <span class="dim">stencil</span></li>
+        <li>Shopify <span class="dim">liquid / hydrogen</span></li>
+        <li>Storefront API</li>
+        <li>Custom Checkout</li>
+        <li>Headless arch.</li>
+      </ul>
+    </div>
+    <div class="group reveal d2">
+      <h4>AI &amp; tooling</h4>
+      <ul>
+        <li>Anthropic API</li>
+        <li>Vercel AI SDK</li>
+        <li>Prompt design</li>
+        <li>Node.js</li>
+        <li>Postgres</li>
+      </ul>
+    </div>
+    <div class="group reveal d3">
+      <h4>Integrations</h4>
+      <ul>
+        <li>Bloomreach</li>
+        <li>Klaviyo</li>
+        <li>Algolia</li>
+        <li>GA4 / GTM</li>
+        <li>Stripe</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="contact-block">
+    <h2 class="big reveal">
+      Let's <em>build</em><br/>
+      something —<br/>
+      <a href="mailto:luciano.bicaku2307@gmail.com" id="emailLink">say hello</a><em>.</em>
+    </h2>
+    <div class="contact-meta">
+      <div>
+        <div class="k">Email</div>
+        <div class="v"><a href="mailto:luciano.bicaku2307@gmail.com">luciano.bicaku2307@gmail.com</a></div>
+      </div>
+      <div>
+        <div class="k">Portfolio</div>
+        <div class="v"><a href="https://luciano-bicaku.vercel.app" target="_blank" rel="noopener">luciano-bicaku.vercel.app</a></div>
+      </div>
+      <div>
+        <div class="k">Availability</div>
+        <div class="v">Senior · Lead · Contract</div>
+      </div>
+      <div>
+        <div class="k">LinkedIn</div>
+        <div class="v"><a href="https://www.linkedin.com/in/luciano-bicaku-0403871a0/" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+      </div>
+      <div>
+        <div class="k">Resume</div>
+        <div class="v"><a href="/assets/Luciano Bicaku — Senior eCommerce Engineer.pdf" target="_blank" rel="noopener" id="cvLink2">Download CV ↓</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 · Luciano Bicaku · Tirana → World</div>
+  <div>Designed &amp; built with patience and too much coffee.</div>
+</footer>
+
+<script>
+  // ---------- PROJECTS DATA ----------
+  const PROJECTS = [
+    { id:1, title:"The GelBottle", sub:"Multi-channel beauty · UK",
+      desc:"400+ pigmented nail colours sold across multiple BC channels. Stencil theme, Bloomreach search, third-party integrations.",
+      tech:["Stencil","SCSS","React","Bloomreach","Multi-channel"], url:"https://thegelbottle.com/" },
+    { id:2, title:"Faba SRL", sub:"Audio storytelling · IT",
+      desc:"The storytelling speaker for kids. Custom React checkout, multi-store project, deep Stencil customization.",
+      tech:["Stencil","React","Custom checkout","Multi-store"], url:"https://www.myfaba.it/" },
+    { id:3, title:"Jolie Profumerie", sub:"Luxury fragrance · IT",
+      desc:"One of the best builds I've shipped. Custom React/TS checkout, deep BC theming, considered UX from PDP to receipt.",
+      tech:["Stencil","React","TypeScript","Custom checkout"], url:"https://jolieprofumerie.com/" },
+    { id:4, title:"Morph Parfum", sub:"Fragrance · IT",
+      desc:"Wonderful World of Morph — widget-led storefront, expressive PLP and editorial product pages.",
+      tech:["Stencil","SCSS","Widgets","Handlebars"], url:"https://morphparfum.com/" },
+    { id:5, title:"Miss Bikini", sub:"Swim & beachwear · IT",
+      desc:"Fashion-forward swimwear storefront with rich PLP filtering and editorial seasonal layouts.",
+      tech:["Stencil","React","SCSS","Handlebars"], url:"https://en.missbikini.it/" },
+    { id:6, title:"Johnny Lambs", sub:"Urban footwear · IT",
+      desc:"Contemporary urban footwear. Theme build with product configurator vibes and bold typography.",
+      tech:["Stencil","React","SCSS","Handlebars"], url:"https://en.johnnylambs.com/" },
+    { id:7, title:"CambioBike", sub:"Cycling · IT",
+      desc:"Bicycles and accessories with deep category trees and a heavy emphasis on filterable PLPs.",
+      tech:["Stencil","React","SCSS","Handlebars"], url:"https://cambiobike.it/" },
+    { id:8, title:"Feel the Fashion", sub:"Apparel · IT",
+      desc:"Trendy fashion storefront with seasonal drops and an editorial product browse.",
+      tech:["Stencil","React","SCSS","Handlebars"], url:"https://feelthefashion.it/" },
+    { id:9, title:"Teams Delivery", sub:"Italian furniture · IT",
+      desc:"Alemaco's crafted furniture brought online. Storefront focused on photography and material detail.",
+      tech:["Stencil","React","SCSS","Handlebars"], url:"https://teamsdeliverysrl.it" },
+  ];
+
+  // ---------- RENDER PROJECTS ----------
+  const list = document.getElementById('projList');
+  PROJECTS.forEach((p, i) => {
+    const a = document.createElement('a');
+    a.className = 'proj reveal';
+    if (i % 2) a.classList.add('d1');
+    a.href = p.url; a.target = '_blank'; a.rel = 'noopener';
+    a.innerHTML = `
+      <div class="idx">${String(i+1).padStart(2,'0')}</div>
+      <div class="name">${p.title}<em>${p.sub}</em></div>
+      <div class="desc">${p.desc}</div>
+      <div class="tech">${p.tech.map(t => `<span>${t}</span>`).join('')}</div>
+      <div class="arrow-link">→</div>
+    `;
+    list.appendChild(a);
+  });
+
+  // ---------- SCROLL REVEAL ----------
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: "0px 0px -10% 0px", threshold: 0.05 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ---------- HERO WORD-IN ----------
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.word-anim').forEach(el => el.classList.add('in'));
+  });
+
+  // ---------- NAV SCROLLED STATE ----------
+  const nav = document.getElementById('topnav');
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ---------- CURSOR BLOB ----------
+  const blob = document.getElementById('blob');
+  let bx = window.innerWidth / 2, by = window.innerHeight / 2;
+  let tx = bx, ty = by;
+  window.addEventListener('pointermove', (e) => { tx = e.clientX; ty = e.clientY; });
+  function blobLoop() {
+    bx += (tx - bx) * 0.12;
+    by += (ty - by) * 0.12;
+    blob.style.transform = `translate(${bx}px, ${by}px) translate(-50%, -50%)`;
+    requestAnimationFrame(blobLoop);
+  }
+  blobLoop();
+
+  // ---------- THEME ----------
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "theme": "light"
+  }/*EDITMODE-END*/;
+  let state = { ...TWEAK_DEFAULTS };
+  const root = document.documentElement;
+  const sunIcon = document.getElementById('sunIcon');
+  const moonSVG = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+  const sunSVG  = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>';
+
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    sunIcon.innerHTML = t === 'dark' ? moonSVG : sunSVG;
+  }
+  applyTheme(state.theme);
+
+  document.getElementById('themeBtn').addEventListener('click', () => {
+    state.theme = state.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(state.theme);
+    try {
+      window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { theme: state.theme } }, '*');
+    } catch(e) {}
+  });
+
+
+  // ---------- TWEAKS PROTOCOL ----------
+  window.addEventListener('message', (e) => {
+    const d = e.data || {};
+    if (d.type === '__activate_edit_mode') openTweaks();
+    if (d.type === '__deactivate_edit_mode') closeTweaks();
+  });
+  window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+  function openTweaks() {
+    let p = document.getElementById('tweaksPanel');
+    if (p) { p.style.display = 'block'; return; }
+    p = document.createElement('div');
+    p.id = 'tweaksPanel';
+    p.style.cssText = `
+      position: fixed; right: 20px; bottom: 20px; z-index: 9999;
+      background: var(--paper); color: var(--ink);
+      border: 1px solid var(--rule); border-radius: 6px;
+      padding: 18px; width: 240px;
+      font-family: var(--sans); font-size: 13px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    `;
+    p.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-3)">Tweaks</div>
+        <button id="tweaksClose" style="background:transparent;border:none;cursor:pointer;color:var(--ink-3);font-size:18px;line-height:1">×</button>
+      </div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px">Theme</div>
+      <div style="display:flex;gap:6px;border:1px solid var(--rule);border-radius:999px;padding:3px;">
+        <button data-t="light" style="flex:1;padding:8px;border-radius:999px;border:none;cursor:pointer;background:transparent;font-family:var(--sans);font-size:12px;color:var(--ink)">Light</button>
+        <button data-t="dark" style="flex:1;padding:8px;border-radius:999px;border:none;cursor:pointer;background:transparent;font-family:var(--sans);font-size:12px;color:var(--ink)">Dark</button>
+      </div>
+    `;
+    document.body.appendChild(p);
+
+    function paint() {
+      p.querySelectorAll('[data-t]').forEach(b => {
+        if (b.dataset.t === state.theme) { b.style.background = 'var(--ink)'; b.style.color = 'var(--bg)'; }
+        else { b.style.background = 'transparent'; b.style.color = 'var(--ink)'; }
+      });
+    }
+    paint();
+    p.querySelectorAll('[data-t]').forEach(b => {
+      b.addEventListener('click', () => {
+        state.theme = b.dataset.t;
+        applyTheme(state.theme);
+        try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { theme: state.theme } }, '*'); } catch(e) {}
+        paint();
+      });
+    });
+    document.getElementById('tweaksClose').addEventListener('click', () => {
+      closeTweaks();
+      try { window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*'); } catch(e) {}
+    });
+  }
+  function closeTweaks() {
+    const p = document.getElementById('tweaksPanel');
+    if (p) p.style.display = 'none';
+  }
+</script>
+</body>
+</html>
